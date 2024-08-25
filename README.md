@@ -1,3 +1,39 @@
+# dbt-coreとBigQueryで実行する手順
+
+gcloud auth でのログイン。 (CloudSDKのインストールがまだの場合は [こちら](https://cloud.google.com/sdk/docs/install-sdk?hl=ja) を参考に設定。)
+```sh
+gcloud auth login
+gcloud auth application-default login
+```
+
+## 各種インストール
+```sh
+python -m venv .venv
+source .venv/bin/activate.fish
+pip install -r requirements.txt
+pip install dbt-bigquery
+```
+
+## テンプレートからプロファイルをコピー
+```sh
+cp profiles_template.yml profiles.yml
+```
+
+## profiles.yml を編集
+`<your-project-id>`に自分のGoogleCloudのプロジェクトIDを書く。
+```yml
+project: <your-project-id>
+```
+
+## dbtのコマンド実行
+```sh
+dbt deps
+dbt seed
+dbt run
+dbt docs generate
+dbt docs serve
+```
+
 # 🥪 The Jaffle Shop 🦘
 
 This is a sandbox project for exploring the basic functionality and latest features of dbt. It's based on a fictional restaurant called the Jaffle Shop that serves [jaffles](https://en.wikipedia.org/wiki/Pie_iron).
