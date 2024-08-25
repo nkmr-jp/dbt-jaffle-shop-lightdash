@@ -1,10 +1,20 @@
 version: 2
 models:
   - name: stg_customers
-    description: Customer data with basic cleaning and transformation applied, one row per customer.
+    description: >-
+      Customer data with basic cleaning and transformation applied, one row per
+      customer.
     columns:
       - name: customer_id
         description: The unique key for each customer.
         data_tests:
           - not_null
           - unique
+        meta:
+          dimension:
+            type: string
+      - name: customer_name
+        description: ""
+        meta:
+          dimension:
+            type: string

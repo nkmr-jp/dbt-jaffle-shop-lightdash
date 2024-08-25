@@ -8,6 +8,9 @@ models:
         data_tests:
           - not_null
           - unique
+        meta:
+          dimension:
+            type: string
       - name: order_id
         description: The corresponding order each order item belongs to
         data_tests:
@@ -15,3 +18,11 @@ models:
           - relationships:
               to: ref('stg_orders')
               field: order_id
+        meta:
+          dimension:
+            type: string
+      - name: product_id
+        description: ""
+        meta:
+          dimension:
+            type: string

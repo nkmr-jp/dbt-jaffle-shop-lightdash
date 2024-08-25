@@ -1,10 +1,45 @@
 version: 2
 models:
   - name: stg_products
-    description: Product (food and drink items that can be ordered) data with basic cleaning and transformation applied, one row per product.
+    description: >-
+      Product (food and drink items that can be ordered) data with basic
+      cleaning and transformation applied, one row per product.
     columns:
       - name: product_id
         description: The unique key for each product.
         data_tests:
           - not_null
           - unique
+        meta:
+          dimension:
+            type: string
+      - name: product_name
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: product_type
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: product_description
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: product_price
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: is_food_item
+        description: ""
+        meta:
+          dimension:
+            type: boolean
+      - name: is_drink_item
+        description: ""
+        meta:
+          dimension:
+            type: boolean

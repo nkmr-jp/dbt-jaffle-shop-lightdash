@@ -1,13 +1,63 @@
 version: 2
 models:
   - name: stg_orders
-    description: Order data with basic cleaning and transformation applied, one row per order.
+    description: >-
+      Order data with basic cleaning and transformation applied, one row per
+      order.
     data_tests:
       - dbt_utils.expression_is_true:
-          expression: "order_total - tax_paid = subtotal"
+          expression: order_total - tax_paid = subtotal
     columns:
       - name: order_id
         description: The unique key for each order.
         data_tests:
           - not_null
           - unique
+        meta:
+          dimension:
+            type: string
+      - name: location_id
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: customer_id
+        description: ""
+        meta:
+          dimension:
+            type: string
+      - name: subtotal_cents
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tax_paid_cents
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: order_total_cents
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: subtotal
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: tax_paid
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: order_total
+        description: ""
+        meta:
+          dimension:
+            type: number
+      - name: ordered_at
+        description: ""
+        meta:
+          dimension:
+            type: timestamp
