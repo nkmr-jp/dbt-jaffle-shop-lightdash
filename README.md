@@ -34,6 +34,44 @@ dbt docs generate
 dbt docs serve
 ```
 
+# lightdashを構築してデプロイする手順
+
+## lightdashをRenderにデプロイ
+
+[Render](https://render.com) のアカウントを作成してログイン。以下のボタンをクリックしてデプロイ。
+
+<div>
+<a href="https://render.com/deploy?repo=https://github.com/lightdash/lightdash-deploy-render">
+  <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
+</a>
+
+See: https://github.com/lightdash/lightdash
+
+## lightdashにdbtの各modelをデプロイ
+
+コマンドをインストールしてログイン
+```sh
+npm install -g @lightdash/cli
+lightdash login https://{{ lightdash_domain }} --token my-super-secret-token
+```
+
+プロジェクト作成してデプロイ（初回のみ）
+```sh
+lightdash deploy --create dbt-jaffle-shop-lightdash
+```
+
+プロジェクトを設定
+```sh
+lightdash config set-project --name dbt-jaffle-shop-lightdash
+```
+
+デプロイ
+```sh
+lightdash dbt run
+lightdash deploy
+```
+
+
 # 🥪 The Jaffle Shop 🦘
 
 This is a sandbox project for exploring the basic functionality and latest features of dbt. It's based on a fictional restaurant called the Jaffle Shop that serves [jaffles](https://en.wikipedia.org/wiki/Pie_iron).
