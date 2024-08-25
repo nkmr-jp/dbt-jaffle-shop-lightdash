@@ -67,16 +67,22 @@ lightdash dbt run
 lightdash deploy --create dbt-jaffle-shop-lightdash
 ```
 
-プロジェクトを設定
-```sh
-lightdash config set-project --name dbt-jaffle-shop-lightdash
-```
-
 デプロイ(2回目以降)
 ```sh
-lightdash dbt run
-lightdash deploy
+make deploy
 ```
+
+## サービスアカウントキーをlightdashに登録
+
+以下の権限でサービスアカウントを作成。サービスアカウントキーを作成してlightdashに登録。
+
+```shell
+roles/bigquery.dataViewer
+roles/bigquery.jobUser
+```
+
+See: https://docs.lightdash.com/get-started/setup-lightdash/connect-project#bigquery
+See: https://docs.lightdash.com/get-started/setup-lightdash/get-project-lightdash-ready
 
 
 # 🥪 The Jaffle Shop 🦘
