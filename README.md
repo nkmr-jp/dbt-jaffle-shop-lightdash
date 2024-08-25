@@ -1,7 +1,7 @@
 # dbt-jaffle-shop-lightdash
 jaffle-shopを `dbt-core` と`BigQuery` と `ligthdash` で動かすために各種設定を修正して、手順をまとめました。
 
-# dbt-coreとBigQueryで実行する手順
+## dbt-coreとBigQueryで実行する手順
 
 gcloud auth でのログイン。 (CloudSDKのインストールがまだの場合は [こちら](https://cloud.google.com/sdk/docs/install-sdk?hl=ja) を参考に設定。)
 ```sh
@@ -9,7 +9,7 @@ gcloud auth login
 gcloud auth application-default login
 ```
 
-## 各種インストール
+### 各種インストール
 ```sh
 python -m venv .venv
 source .venv/bin/activate.fish
@@ -17,18 +17,18 @@ pip install -r requirements.txt
 pip install dbt-bigquery
 ```
 
-## テンプレートからプロファイルをコピー
+### テンプレートからプロファイルをコピー
 ```sh
 cp profiles_template.yml profiles.yml
 ```
 
-## profiles.yml を編集
+### profiles.yml を編集
 `<your-project-id>`に自分のGoogleCloudのプロジェクトIDを書く。
 ```yml
 project: <your-project-id>
 ```
 
-## dbtのコマンド実行
+### dbtのコマンド実行
 ```sh
 dbt deps
 dbt seed
@@ -37,9 +37,9 @@ dbt docs generate
 dbt docs serve
 ```
 
-# lightdashを構築してデプロイする手順
+## lightdashを構築してデプロイする手順
 
-## lightdashをRenderにデプロイ
+### lightdashをRenderにデプロイ
 
 [Render](https://render.com) のアカウントを作成してログイン。以下のボタンをクリックしてデプロイ。
 
@@ -50,7 +50,7 @@ dbt docs serve
 
 See: https://github.com/lightdash/lightdash
 
-## lightdashにdbtの各modelをデプロイ
+### lightdashにdbtの各modelをデプロイ
 
 コマンドをインストールしてログイン
 ```sh
