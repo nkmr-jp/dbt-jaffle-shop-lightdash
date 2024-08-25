@@ -19,6 +19,9 @@ models:
         meta:
           dimension:
             type: string
+          metrics:
+            order_count:
+              type: count_distinct
       - name: customer_id
         description: The foreign key relating to the customer who placed the order.
         data_tests:
@@ -33,6 +36,13 @@ models:
         meta:
           dimension:
             type: number
+            hidden: true
+          metrics:
+            order_total_sum:
+              type: sum
+              label: "Total sales (USD)"
+              groups: [ "Sales metrics" ]
+              round: 2
       - name: ordered_at
         description: The timestamp the order was placed at.
         meta:
@@ -43,6 +53,7 @@ models:
         meta:
           dimension:
             type: number
+            hidden: true
       - name: is_food_order
         description: A boolean indicating if this order included any food items.
         meta:
@@ -63,46 +74,64 @@ models:
         meta:
           dimension:
             type: number
+            hidden: true
+          metrics:
+            subtotal_sum:
+              type: sum
       - name: tax_paid_cents
         description: ""
         meta:
           dimension:
             type: number
+            hidden: true
+          metrics:
+            tax_paid_cent_sum:
+              type: sum
       - name: order_total_cents
         description: ""
         meta:
           dimension:
             type: number
+            hidden: true
       - name: subtotal
         description: ""
         meta:
           dimension:
             type: number
+            hidden: true
       - name: tax_paid
         description: ""
         meta:
           dimension:
             type: number
+            hidden: true
+          metrics:
+            tax_paid_sum:
+              type: sum
       - name: order_items_subtotal
         description: ""
         meta:
           dimension:
             type: number
+            hidden: true
       - name: count_food_items
         description: ""
         meta:
           dimension:
             type: number
+            hidden: true
       - name: count_drink_items
         description: ""
         meta:
           dimension:
             type: number
+            hidden: true
       - name: count_order_items
         description: ""
         meta:
           dimension:
             type: number
+            hidden: true
       - name: customer_order_number
         description: ""
         meta:

@@ -67,6 +67,11 @@ lightdash dbt run
 lightdash deploy --create dbt-jaffle-shop-lightdash
 ```
 
+モデルを変更した際に動きを確認する。
+```sh
+lightdash preview
+```
+
 デプロイ(2回目以降)
 ```sh
 # 他にもプロジェクトがある場合は、プロジェクト名を指定
