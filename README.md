@@ -1,3 +1,6 @@
+# dbt-jaffle-shop-lightdash
+jaffle-shopを `dbt-core` と`BigQuery` と `ligthdash` で動かすために各種設定を修正して、手順をまとめました。
+
 # dbt-coreとBigQueryで実行する手順
 
 gcloud auth でのログイン。 (CloudSDKのインストールがまだの場合は [こちら](https://cloud.google.com/sdk/docs/install-sdk?hl=ja) を参考に設定。)
