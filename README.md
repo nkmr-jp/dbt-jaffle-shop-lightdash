@@ -69,7 +69,10 @@ lightdash deploy --create dbt-jaffle-shop-lightdash
 
 デプロイ(2回目以降)
 ```sh
-make deploy
+# 他にもプロジェクトがある場合は、プロジェクト名を指定
+lightdash config set-project --name dbt-jaffle-shop-lightdash
+lightdash dbt run
+lightdash deploy
 ```
 
 ## サービスアカウントキーをlightdashに登録
