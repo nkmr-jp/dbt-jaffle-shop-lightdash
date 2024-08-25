@@ -37,6 +37,9 @@ dbt docs generate
 dbt docs serve
 ```
 
+<img width="2004" alt="image" src="https://github.com/user-attachments/assets/8450ae06-70a4-437c-ba10-e785b05c5156">
+
+
 ## lightdashを構築してデプロイする手順
 
 ### lightdashをRenderにデプロイ
