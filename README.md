@@ -57,6 +57,7 @@ lightdash login https://{{ lightdash_domain }} --token my-super-secret-token
 
 プロジェクト作成してデプロイ（初回のみ）
 ```sh
+lightdash dbt run
 lightdash deploy --create dbt-jaffle-shop-lightdash
 ```
 
@@ -65,7 +66,7 @@ lightdash deploy --create dbt-jaffle-shop-lightdash
 lightdash config set-project --name dbt-jaffle-shop-lightdash
 ```
 
-デプロイ
+デプロイ(2回目以降)
 ```sh
 lightdash dbt run
 lightdash deploy
